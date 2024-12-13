@@ -1,0 +1,115 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            width: 400px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+        h1 {
+            color: #4267B2;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4267B2;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #365899;
+        }
+        .hidden {
+            display: none;
+        }
+        .scam-container {
+            text-align: center;
+        }
+        .scam-container img {
+            max-width: 100%;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        .scam-container h1 {
+            color: red;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="signinContainer">
+        <h1>Facebook</h1>
+        <form id="signinForm">
+            <div class="form-group">
+                <label for="email">Email or Phone</label>
+                <input type="text" id="email" placeholder="Enter your email or phone" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Enter your password" required>
+            </div>
+            <button type="submit">Log In</button>
+        </form>
+    </div>
+
+    <div class="container hidden" id="scamContainer">
+        <div class="scam-container">
+            <img src="https://via.placeholder.com/600x300?text=You+Were+Scammed!" alt="Scammed Image">
+            <h1>You Were Scammed!</h1>
+        </div>
+    </div>
+
+    <script>
+
+
+
+        const signinForm = document.getElementById('signinForm');
+        const signinContainer = document.getElementById('signinContainer');
+        const scamContainer = document.getElementById('scamContainer');
+
+        signinForm.addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevent default form submission
+
+            // Hide the sign-in form and show the "scammed" message
+            signinContainer.classList.add('hidden');
+            scamContainer.classList.remove('hidden');
+        });
+    </script>
+</body>
+</html>
